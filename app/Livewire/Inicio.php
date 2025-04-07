@@ -17,10 +17,12 @@ class Inicio extends Component
      public $productos_disponibles;
      public $productos_all;
 
-    public function administrar($id)
+     public function administrar($id)
     {
         return to_route('administrar-cliente',['usuario'=>$id]);
     }
+
+
 
     public function render()
     {
