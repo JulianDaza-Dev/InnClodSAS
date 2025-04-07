@@ -61,6 +61,42 @@
         </div>
     @endcan
     @can('comprar-productos')
+    <div class="d-grid gap-2" style="margin-bottom: 1%;margin-top: 1%">
+        <a class="btn btn-secondary" href="">Ver Ordenes</a>
+      </div>
+      <div>
+        <form wire:submit="agregar_orden">
+
+            <select name="" id="">
+        </form>
+
+        </select>
+      </div>
+      <div class="d-grid gap-2" style="margin-bottom: 3%; text-align: center;">
+        <p>ORDEN ACTUAL</p>
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    NOMBRE
+                </td>
+                <td>
+                    STOCK
+                </td>
+            </tr>
+            @foreach ($productos_all as $producto)
+                <tr>
+                    <td>
+                        {{$producto->name}}
+                    </td>
+                    <td>
+                        {{$producto->stock}}
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+      </div>
+      
             <div style="text-align: center">PRODUCTOS</div>
     
             <div class="card-group">
@@ -69,10 +105,6 @@
                     <div class="card-body" style="text-align: center">
                         <h5 class="card-title">{{$producto->productos->name}}</h5>
                         <p class="card-title">stock:{{$producto->productos->stock}}</p>
-                        <div>
-                            <button class="btn btn-success">AGREGAR</button>
-                            <button class="btn btn-danger">ELIMINAR</button>
-                        </div>
                     </div>
                 </div>
                 @endforeach
