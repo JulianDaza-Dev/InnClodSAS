@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\AdministrarCliente;
+use App\Livewire\CrearProducto;
+use App\Livewire\Inicio;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
+
+Route::view('dashboard', 'dashboard')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+    Route::get('inicio', Inicio::class)
+    ->middleware(['auth'])
+    ->name('inicio');
+
+    Route::get('crear-producto', CrearProducto::class)
+    ->middleware(['auth'])
+    ->name('crear-producto');
+
+    Route::get('administrar-cliente/{usuario}', AdministrarCliente::class)
+    ->middleware(['auth'])
+    ->name('administrar-cliente');
+
+require __DIR__.'/auth.php';
