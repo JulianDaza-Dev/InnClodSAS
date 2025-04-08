@@ -22,9 +22,7 @@ class VerOrdenes extends Component
     {
         $this->usuario_actual = Auth::user()->id;
         $this->ordenes = Order::where('client_id',$this->usuario_actual)->where('estado',1)->get();
-        foreach ($this->ordenes as $orden) {
-            
-        }
+
 
     }
 }

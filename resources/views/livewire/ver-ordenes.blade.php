@@ -4,28 +4,27 @@
         <table class="table table-striped">
             <tr>
                 <td>
-                    PRODUCTO
+                    ID ORDEN
                 </td>
                 <td>
-                    CANTIDAD
-                </td>
-                <td>
-                    ACCION
+                    Fecha
                 </td>
             </tr>
-            @foreach ($orden_actual_productos as $producto)
+            @foreach ($ordenes as $orden)
                 <tr>
                     <td>
-                        {{$producto->productos->name}}
+                        {{$orden->id}}
                     </td>
                     <td>
-                        {{$producto->quantity}}
-                    </td>
-                    <td>
-                        <button class="btn btn-danger" wire:click="eliminar({{$producto->id}})">Eliminar</button>
+                        {{$orden->created_at}}
                     </td>
                 </tr>
             @endforeach
            
         </table>
+        <div style="text-align: center">
+            <div style="text-align: center; margin-top: 1%;">
+                <a class="btn btn-danger" href="{{route('inicio')}}">VOLVER</a>
+            </div>
+        </div>
 </div>

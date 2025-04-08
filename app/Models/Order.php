@@ -9,7 +9,7 @@ class Order extends Model
 {
     protected $fillable = [
         'client_id',
-        'estado'
+        'estado',
     ];
     public function productos()
 {
