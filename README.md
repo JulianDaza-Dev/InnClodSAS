@@ -1,3 +1,13 @@
+## GUIA INSTALACION
+1) El primer paso es asegurarse de tener instalado Xampp o su equivalente para Linux.<br>
+2) Tener versión 8.1 de PHP mínimo, tener instalado Composer, MySQL, Node.js, npm y Git.<br>
+3) Clonar el repositorio con el siguiente comando: `git@github.com:JulianDaza-Dev/InnClodSAS.git` e ingresar al repositorio con `cd InnClodSAS`.<br>
+4) Instalar las dependencias de PHP con `composer install`.<br>
+5) Instalar las dependencias de front con `npm install`.<br>
+6) Ejecutar el comando "cp .env.example" y en el archivo .env configurar el DB_DATABASE a INNCLOD, el DB_USERNAME y DB_PASSWORD al que tenga y crea la base de datos con "CREATE DATABASE INNCLOD"
+7) Correr las migraciones con ""php artisan migrate --seed
+8) Ejecutar los comandos npm run dev y npm run build
+9) Levantar el servidor con "php artisan serve"
 
 ## GUIA FUNCIONAMIENTO
 Al iniciar el software se cuenta con dos botones en la parte superior derecha, los cuales tienen dos funcionalidades diferentes, "Log In" con el cual ingresamos a aplicativo con un usuario ya creado y el boton "Register" con el cual nos registramos con un usuario nuevo  
