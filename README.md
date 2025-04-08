@@ -5,10 +5,15 @@
 4) Instalar las dependencias de PHP con `composer install`.<br>
 5) Instalar las dependencias de front con `npm install`.<br>
 6) Ejecutar el comando "cp .env.example" y en el archivo .env configurar el DB_DATABASE a INNCLOD, el DB_USERNAME y DB_PASSWORD al que tenga y crea la base de datos con "CREATE DATABASE INNCLOD"
-7) Correr las migraciones con ""php artisan migrate --seed
+7) Correr las migraciones con los seeders creados "php artisan migrate --seed"
 8) Ejecutar los comandos npm run dev y npm run build
 9) Levantar el servidor con "php artisan serve"
 
+## HERRAMIENTAS USADAS
+Se hizo uso de livewire como framework de apoyo para el front y back,blade como motor de plantillas  ,breeze para facilitar un login y register con seguridad ya integrada y spatie para la creacion de roles y permisos para los dos tipos de usuarios del aplicativo
+
+## USUARIOS CREADOS
+Con ayuda de los seeders se crearon productos y usuarios, los diferentes usuarios, todos tienen como contraseña 12345678, el primer usuario es julian@gmail.com el cual es el unico administrador, y los clientes son carlos@gmail.com, jesus@gmail.com y milena@gmail.com (Recordar que se pueden registrar usuarios nuevos los cuales tendran de base el usuario de "cliente") 
 ## GUIA FUNCIONAMIENTO
 Al iniciar el software se cuenta con dos botones en la parte superior derecha, los cuales tienen dos funcionalidades diferentes, "Log In" con el cual ingresamos a aplicativo con un usuario ya creado y el boton "Register" con el cual nos registramos con un usuario nuevo  
 
