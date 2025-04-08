@@ -62,22 +62,32 @@
     @endcan
     @can('comprar-productos')
         <div class="d-grid gap-2" style="margin-bottom: 1%;margin-top: 1%">
-            <a class="btn btn-secondary" href="">Ver Ordenes</a>
+            <a class="btn btn-secondary" href="{{route('ver-ordenes')}}">Ver Ordenes</a>
         </div>
         <div style="text-align: center;margin-bottom:1%">
             AGREGAR PRODUCTO A LA ORDEN
             <form wire:submit="agregar_orden">
 
-                <select wire:model="producto_insertar">
+                <select wire:model="product_id">
                     <option value="">SELECCIONE UN PRODUCTO</option>
-                    @foreach ($productos_disponibles as $producto)
-                    <option value="">{{$producto->productos->name}}</option>
+                    @foreach ($productos_elegibles as $producto)
+                        <option value="{{$producto->productos->id}}">{{$producto->productos->name}}</option>
                     @endforeach
 
                 </select>
+                <input type="number" placeholder="Cantidad" wire:model="quantity">
+                <button type="submit" class="btn btn-success"> AGREGAR</button>
             </form>
 
         </div>
+        <div style="text-align: center;margin-bottom:1%">
+        @error('product_id')
+            <p style="color: red">{{$message}}</p>
+        @enderror
+        @error('quantity')
+            <p style="color: red">{{$message}}</p>
+        @enderror
+    </div>
         <div class="d-grid gap-2" style="margin-bottom: 3%; text-align: center;">
             <p>ORDEN ACTUAL</p>
             <table class="table table-striped">
@@ -88,19 +98,33 @@
                     <td>
                         CANTIDAD
                     </td>
+                    <td>
+                        ACCION
+                    </td>
                 </tr>
-                @foreach ($productos_all as $producto)
+                @foreach ($orden_actual_productos as $producto)
                     <tr>
                         <td>
-                            {{$producto->name}}
+                            {{$producto->productos->name}}
                         </td>
                         <td>
-                            {{$producto->stock}}
+                            {{$producto->quantity}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" wire:click="eliminar({{$producto->id}})">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach
-
+               
             </table>
+            <div>
+                @if ($orden_actual_productos->isEmpty())
+
+                @else
+                <a class="btn btn-success" wire:click="ordenar">ORDENAR</a>
+                @endif
+            </div>
+            
         </div>
 
         <div style="text-align: center">PRODUCTOS</div>

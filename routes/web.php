@@ -4,6 +4,8 @@ use App\Livewire\AdministrarCliente;
 use App\Livewire\CrearOrden;
 use App\Livewire\CrearProducto;
 use App\Livewire\Inicio;
+use App\Livewire\Ordenar;
+use App\Livewire\VerOrdenes;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +40,14 @@ Route::view('profile', 'profile')
     Route::get('administrar-cliente/{usuario}', AdministrarCliente::class)
     ->middleware(['auth'])
     ->name('administrar-cliente');
+
+    Route::get('ordenar', Ordenar::class)
+    ->middleware(['auth'])
+    ->name('ordenar');
+
+    Route::get('ver-ordenes', VerOrdenes::class)
+    ->middleware(['auth'])
+    ->name('ver-ordenes');
 
 
 require __DIR__.'/auth.php';

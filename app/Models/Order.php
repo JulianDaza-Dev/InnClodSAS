@@ -11,4 +11,8 @@ class Order extends Model
         'client_id',
         'estado'
     ];
+    public function productos()
+{
+    return $this->belongsTo(OrderDetails::class,'order_id');
+}
 }
